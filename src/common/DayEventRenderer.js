@@ -50,6 +50,7 @@ function DayEventRenderer() {
 		var rowI;
 		var levelI;
 		var colHeights;
+		var sortedHeights;
 		var j;
 		var segCnt = segs.length;
 		var seg;
@@ -70,11 +71,16 @@ function DayEventRenderer() {
 			for (j=0; j<colCnt; j++) {
 				colHeights[j] = 0;
 			}
+			sortedHeights = [0];
 			while (i<segCnt && (seg = segs[i]).row == rowI) {
 				// loop through segs in a row
 				top = arrayMax(colHeights.slice(seg.startCol, seg.endCol));
 				seg.top = top;
 				top += seg.outerHeight;
+				if (sortedHeights.indexOf(top) < 0) {
+					sortedHeights.push(top);
+				}
+				seg.event.vIndex = sortedHeights.indexOf(top);
 				for (k=seg.startCol; k<seg.endCol; k++) {
 					colHeights[k] = top;
 				}
