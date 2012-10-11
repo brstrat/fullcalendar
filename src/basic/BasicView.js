@@ -201,6 +201,8 @@ function BasicView(element, calendar, viewName) {
 		bodyCells.each(function(i, _cell) {
 			cell = $(_cell);
 			date = indexDate(i);
+			cell_date = calendar.formatDate(date, 'yyy-MM-dd');
+			cell.addClass('fc-cell-date__' + cell_date);
 			if (date.getMonth() == month) {
 				cell.removeClass('fc-other-month');
 			}else{
