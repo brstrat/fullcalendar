@@ -233,6 +233,8 @@ function EventManager(options, _sources) {
 				e.allDay = event.allDay;
 				e.className = event.className;
 				e.editable = event.editable;
+				e.disableDragging = event.disableDragging;
+				e.disableResizing = event.disableResizing;
 				e.color = event.color;
 				e.backgroudColor = event.backgroudColor;
 				e.borderColor = event.borderColor;
